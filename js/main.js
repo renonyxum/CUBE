@@ -51,8 +51,14 @@ function initialize()
 		}	
 	}
 
+	// Modified arToolkitSource.init to include an error callback
 	arToolkitSource.init(function onReady(){
-		onResize()
+		onResize();
+		console.log("AR Toolkit Source (Camera) Ready.");
+	}, function onError(error){
+		console.error("AR Toolkit Source (Camera) Initialization Error:", error);
+		// You can add a message to the user here, e.g.:
+		// alert("Failed to access camera. Please ensure permissions are granted and you are using HTTPS.");
 	});
 	
 	// handle resize event
@@ -66,13 +72,14 @@ function initialize()
 
 	// create atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: 'data/camera_para.dat',
+		cameraParametersUrl: 'data/camera_para.dat', // Ensure this path is correct
 		detectionMode: 'mono'
 	});
 	
 	// copy projection matrix to camera when initialization complete
 	arToolkitContext.init( function onCompleted(){
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
+		console.log("AR Toolkit Context Initialized.");
 	});
 
 	////////////////////////////////////////////////////////////
@@ -100,12 +107,10 @@ function initialize()
 	});
 
 	// --- START GLB MODEL LOADING ---
-    // GLTFLoader is now globally available via CDN
     const loader = new THREE.GLTFLoader();
 
-    // Replace 'path/to/your_model.glb' with the actual path to your GLB file.
-    // Example: 'models/doggy.glb' if you have a 'models' folder in your project root.
-    const glbPath = 'path/to/your_model.glb'; 
+    // Corrected path to your GLB file
+    const glbPath = 'main/assets/BOX.glb'; 
 
     loader.load(
         glbPath,
