@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Hello, AR GLB!</title>
+	<!-- include three.js library from CDN -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+    <!-- include GLTFLoader from CDN -->
+    <script src='https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js'></script> 
+	<!-- include jsartookit (corrected path assuming these are in a 'js' folder) -->
+	<script src="js/jsartoolkit5/artoolkit.min.js"></script>
+	<script src="js/jsartoolkit5/artoolkit.api.js"></script>
+	<!-- include threex.artoolkit (corrected paths assuming these are in a 'js' folder) -->
+	<script src="js/threex/threex-artoolkitsource.js"></script>
+	<script src="js/threex/threex-artoolkitcontext.js"></script>
+	<script src="js/threex/threex-arbasecontrols.js"></script>
+	<script src="js/threex/threex-armarkercontrols.js"></script>
+	<script src="js/threex/threex-arsmoothedcontrols.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+<!-- 
+  Example created by Lee Stemkoski: https://github.com/stemkoski
+  Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
+-->
+
+<!-- Your main JavaScript logic will now be in a separate file -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
